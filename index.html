@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="乌鲁木齐市房地产市场2025年深度研究报告，全面分析市场现状与未来趋势，包含房价预测、土地市场分析、投资策略建议等内容">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="color-scheme" content="light dark">
+    <meta name="author" content="房策智链研究院">
+    <meta name="keywords" content="乌鲁木齐,房地产市场,2025年,研究报告,房价预测,土地市场,投资策略">
+    <title>乌市房地产市场 2025年深度研究报告（付费版）</title>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <!-- TailwindCSS 通过CDN引入 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js 数据可视化库 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/print.css">
+    <!-- 自定义脚本 -->
+    <script src="js/charts.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/price-increase-chart.js" defer></script>
+    <script src="js/land-market-chart.js" defer></script>
+    <script src="js/land-region-chart.js" defer></script>
+    <script src="js/property-market-chart.js" defer></script>
+    <script src="js/property-market-demand-supply.js" defer></script>
+    <script src="js/land-market-analysis.js" defer></script>
+    <script src="js/policy-environment-chart.js" defer></script>
+    <script src="js/investment-strategy-chart.js" defer></script>
+    <script>
+        // 配置Tailwind
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .transition-all {
+                transition-property: all;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+            
+            .card-hover {
+                @apply transition-all hover:shadow-lg hover:scale-[1.02] dark:hover:shadow-primary-900/20;
+            }
+            
+            .btn {
+                @apply px-4 py-2 rounded-md transition-all transform hover:scale-105;
+            }
+            
+            .btn-primary {
+                @apply bg-primary-600 text-white hover:bg-primary-700;
+            }
+            
+            .section-fade {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+            
+            .section-fade.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- 顶部导航栏 -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-sm transition-colors duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-primary-600 dark:text-primary-400">房策智链研究院</h1>
+            <div class="flex items-center space-x-4">
+                <!-- 深色模式切换按钮 -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    <i class="fas fa-moon text-blue-300 hidden dark:inline"></i>
+                </button>
+                <!-- 导航链接 -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#overview" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">概述</a>
+                    <a href="#market-analysis" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">市场分析</a>
+                    <a href="#land-market" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">土地市场</a>
+                    <a href="#policy-environment" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">政策环境</a>
+                    <a href="#property-market" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">商品房市场</a>
+                    <a href="#investment-strategy" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">投资策略</a>
+                    <a href="#conclusion" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">结论</a>
+                </nav>
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg transition-colors fixed top-16 left-0 right-0 bottom-0 z-40 overflow-y-auto backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+            <div class="container mx-auto px-4 py-6 flex flex-col space-y-4">
+                <a href="#overview" class="py-4 px-5 text-lg font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors border-b border-gray-100 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-chart-line mr-3 text-primary-500"></i>概述
+                </a>
+                <a href="#market-analysis" class="py-4 px-5 text-lg font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors border-b border-gray-100 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-search-dollar mr-3 text-primary-500"></i>市场分析
+                </a>
+                <a href="#land-market" class="py-4 px-5 text-lg font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors border-b border-gray-100 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-map-marked-alt mr-3 text-primary-500"></i>土地市场
+                </a>
+                <a href="#policy-environment" class="py-4 px-5 text-lg font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors border-b border-gray-100 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-gavel mr-3 text-primary-500"></i>政策环境
+                </a>
+                <a href="#property-market" class="py-4 px-5 text-lg font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors border-b border-gray-100 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-building mr-3 text-primary-500"></i>商品房市场
+                </a>
+                <a href="#investment-strategy" class="py-4 px-5 text-lg font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors border-b border-gray-100 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-lightbulb mr-3 text-primary-500"></i>投资策略
+                </a>
+                <a href="#conclusion" class="py-4 px-5 text-lg font-medium hover:text-primary-600 dark:hover:text-primary-400 transition-colors rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-flag-checkered mr-3 text-primary-500"></i>结论
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- 封面区域 -->
+        <section class="mb-16 text-center section-fade">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary-700 dark:text-primary-400">乌市房地产市场<br>2025年深度研究报告（付费版）</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">全面分析乌鲁木齐房地产市场现状与未来发展趋势</p>
+            <div class="mt-8 flex justify-center">
+                <a href="#overview" class="btn btn-primary mx-2">开始阅读</a>
+                <a href="#" class="btn bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 mx-2">下载PDF</a>
+            </div>
+        </section>
+
+        <!-- 概述部分 -->
+        <section id="overview" class="mb-16 section-fade">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400 flex items-center">
+                    <i class="fas fa-chart-line mr-3"></i>市场概述
+                </h2>
+                <div class="prose dark:prose-invert max-w-none">
+                    <p class="mb-4">乌鲁木齐作为新疆维吾尔自治区的首府，是西北地区重要的经济、文化和交通中心。近年来，随着"一带一路"倡议的深化推进和西部大开发战略的持续实施，乌鲁木齐的城市建设和房地产市场呈现出新的发展态势。</p>
+                    
+                    <p class="mb-4">本报告通过对乌鲁木齐市房地产市场的深入调研和数据分析，全面呈现2025年乌鲁木齐房地产市场的发展现状、问题挑战以及未来趋势，为投资者、开发商和政策制定者提供决策参考。</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8">
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-center">
+                            <div class="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">5.2%</div>
+                            <p class="text-gray-600 dark:text-gray-400">预计2025年房价增长率</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-center">
+                            <div class="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">42.3万㎡</div>
+                            <p class="text-gray-600 dark:text-gray-400">2025年预计新增供应面积</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-center">
+                            <div class="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">3.8%</div>
+                            <p class="text-gray-600 dark:text-gray-400">投资回报率预期</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 市场分析部分 -->
+        <section id="market-analysis" class="mb-16 section-fade">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400 flex items-center">
+                    <i class="fas fa-search-dollar mr-3"></i>市场分析
+                </h2>
+                
+                <div class="prose dark:prose-invert max-w-none">
+                    <h3 class="text-xl font-semibold mb-4">供需状况</h3>
+                    <p class="mb-4">乌鲁木齐市房地产市场供需关系正在趋于平衡。随着城市规划的调整和人口政策的变化，住房需求结构发生了明显变化。2025年，刚需和改善型需求将成为市场主力，占总需求的65%以上。</p>
+                    
+                    <div class="my-8">
+                        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">刚需型</span>
+                                <span>38%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 38%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 mt-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">改善型</span>
+                                <span>27%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 27%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 mt-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">投资型</span>
+                                <span>22%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 22%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 mt-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">其他</span>
+                                <span>13%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 13%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">价格趋势</h3>
+                    <p class="mb-4">2025年乌鲁木齐房地产市场价格将呈现稳中有升的态势。预计全市住宅均价同比上涨5.2%，其中高新区和经济技术开发区涨幅较大，达到6.8%和6.5%。商业地产价格涨幅相对较小，预计在3.1%左右。</p>
+                    
+                    <div class="my-8 price-increase-chart">
+                        <h4 class="chart-title">2025年乌鲁木齐各区域房价预计涨幅</h4>
+                        <div id="price-increase-chart" class="chart-container bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm h-64"></div>
+                    </div>
+                    
+                    <div class="my-8">
+                        <h4 class="chart-title">住宅均价历年变化趋势(2020-2025)</h4>
+                        <div id="price-trend-chart" class="chart-container bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm"></div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">区域发展</h3>
+                    <p class="mb-4">乌鲁木齐市各区域房地产市场发展不均衡，呈现出明显的区域特色。高新区和经济技术开发区凭借产业集聚和政策支持，成为房地产投资热点；水磨沟区和沙依巴克区作为传统居住区，改善型需求明显；米东区和头屯河区则因基础设施完善和价格优势，吸引了大量刚需购房者。</p>
+                    
+                    <div class="my-8">
+                        <h4 class="chart-title">各区域房价与涨幅对比</h4>
+                        <div id="region-comparison-chart" class="chart-container bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm"></div>
+                    </div>
+                    
+                    <div class="my-8">
+                        <h4 class="chart-title">各区域投资回报率预期</h4>
+                        <div id="roi-chart" class="chart-container bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3 text-primary-600 dark:text-primary-400">高新区</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>科技创新产业集聚，人才吸引力强</li>
+                                <li>高端住宅和商业地产占比高</li>
+                                <li>预计2025年房价涨幅6.8%，领跑全市</li>
+                                <li>投资回报率预期4.5%</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3 text-primary-600 dark:text-primary-400">经济技术开发区</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>产业发展迅速，就业机会增加</li>
+                                <li>中高端住宅为主，配套设施完善</li>
+                                <li>预计2025年房价涨幅6.5%</li>
+                                <li>投资回报率预期4.2%</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3 text-primary-600 dark:text-primary-400">水磨沟区/沙依巴克区</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>传统居住区，生活配套成熟</li>
+                                <li>二手房交易活跃，改善型需求明显</li>
+                                <li>预计2025年房价涨幅4.2%-5.0%</li>
+                                <li>投资回报率预期3.5%-3.8%</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3 text-primary-600 dark:text-primary-400">米东区/头屯河区</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                <li>基础设施不断完善，交通便利性提高</li>
+                                <li>刚需型住宅为主，价格相对亲民</li>
+                                <li>预计2025年房价涨幅3.5%-4.0%</li>
+                                <li>投资回报率预期3.2%-3.5%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">土地市场核心特征与趋势分析</h3>
+                    <p class="mb-4">乌鲁木齐市土地市场呈现结构性调整特征，产业用地占比大幅提升，住宅用地质量提高，工业与商业用地市场冷热不均。</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">土地供应结构性调整显著</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">2025年计划推出土地74585亩（496宗），其中产业用地占比72%（53841亩），体现乌鲁木齐"产城融合"战略。甘泉堡经开区工业用地（38788亩）占全市产业用地71.9%，凸显其作为国家级工业基地的定位。</p>
+                                
+                                <div class="my-6">
+                                    <div id="land-supply-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                                
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                    <li><span class="font-medium">城镇住宅用地：</span>172宗（14,475亩，占比19.4%）</li>
+                                    <li><span class="font-medium">商业用地：</span>121宗（6,269亩，占比8.4%）</li>
+                                    <li><span class="font-medium">产业用地：</span>203宗（53,841亩，占比72.2%）</li>
+                                </ul>
+                                
+                                <p class="text-gray-700 dark:text-gray-300 mt-4">区域分化：天山区、沙依巴克区以城镇住宅和商业用地为主（合计占比10.8%），经开区（头屯河区）和米东区侧重产业用地（合计占比18.3%）；乌鲁木齐县以文旅商业用地为核心（1901亩）。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">住宅用地供应提质增效</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">乌鲁木齐市住宅用地供应正在优化结构，提高质量，推动生态宜居社区建设。</p>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">容积率优化</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">新型住宅用地容积率普遍控制在2.0-2.5（如天山区明华街地块1.4），降低开发密度，推动生态宜居社区建设。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">保障性住房配建缺失</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">2024-2025年土拍中无保障房配建要求，需警惕住房分层化风险，建议未来土拍增加配建比例。</p>
+                                </div>
+                                
+                                <div class="mt-4 flex justify-center">
+                                    <div class="inline-block bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-500 p-3 rounded">
+                                        <p class="text-yellow-700 dark:text-yellow-300 text-sm"><i class="fas fa-exclamation-triangle mr-2"></i>住房分层化风险提示：缺乏保障性住房配建可能导致住房市场分层加剧</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">工业与商业用地市场冷热不均</h4>
+                            </div>
+                            <div class="p-5">
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">工业用地热度高</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">新型工业用地（M0）成交活跃（如高新区高科路地块成交价4740万元），政策红利（税费减免、配套支持）吸引企业布局。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">商业用地流拍率高</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">天山区新华南路商业地块（2025-C-2B01）流拍，反映传统商圈竞争饱和；新兴区域（如会展片区）需加强产商联动，避免同质化。</p>
+                                </div>
+                                
+                                <div class="my-6">
+                                    <div id="land-usage-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">土地市场风险与挑战</h3>
+                    <p class="mb-4">尽管乌鲁木齐土地市场整体呈现积极发展态势，但仍面临以下风险与挑战：</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">供需结构性失衡</h5>
+                            <p class="text-gray-700 dark:text-gray-300">住宅用地供应与市场需求存在错配，热点区域（如高新区、水磨沟区）土地供应不足，而部分远郊区土地供应过剩，导致资源配置效率低下。</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">土地价格波动风险</h5>
+                            <p class="text-gray-700 dark:text-gray-300">部分区域土地价格涨幅过快（如高新区同比上涨18.5%），存在泡沫风险；同时，部分区域土地价格持续下跌，影响开发商投资信心。</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">土地闲置风险</h5>
+                            <p class="text-gray-700 dark:text-gray-300">2025年全市土地闲置率达4.2%，部分开发商因资金链紧张或市场预期不佳而延缓开发，增加了土地资源浪费和城市建设效率下降风险。</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">政策调整风险</h5>
+                            <p class="text-gray-700 dark:text-gray-300">土地出让政策可能根据市场变化进行调整，包括出让方式、价格管控、用途管制等，增加了开发商决策的不确定性。</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">土地市场政策建议</h3>
+                    <p class="mb-4">针对乌鲁木齐土地市场存在的问题，提出以下政策建议：</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">优化土地供应结构</h4>
+                            </div>
+                            <div class="p-5">
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                    <li>增加热点区域住宅用地供应，缓解供需矛盾</li>
+                                    <li>提高商业用地出让灵活性，允许分期缴纳土地出让金</li>
+                                    <li>加大产业用地供应力度，支持新兴产业发展</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">完善土地市场监管</h4>
+                            </div>
+                            <div class="p-5">
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                    <li>建立土地市场预警机制，防范价格异常波动</li>
+                                    <li>加强土地闲置处置，提高土地利用效率</li>
+                                    <li>完善土地出让信息公开机制，提高市场透明度</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">创新土地管理模式</h4>
+                            </div>
+                            <div class="p-5">
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                    <li>探索"产业+住宅"混合用地模式，促进产城融合</li>
+                                    <li>推行弹性出让年限，降低企业用地成本</li>
+                                    <li>建立土地储备与供应联动机制，提高市场调控能力</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-center">土地市场：结构性调整与区域分化深化</h3>
+                    
+                    <!-- 供应逻辑部分 -->
+                    <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg mb-8">
+                        <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                            <h4 class="font-semibold text-lg text-center">供应逻辑：产城融合导向下的精准布局</h4>
+                        </div>
+                        <div class="p-5">
+                            <p class="text-gray-700 dark:text-gray-300 mb-4 text-center">乌鲁木齐土地市场呈现明显的区域分化特征，北部以实体产业集聚为主，中部以服务业升级为核心，南部以文旅生态为突破口，形成差异化发展格局。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 区域分化部分 -->
+                    <h4 class="text-lg font-semibold mb-4">区域分化特征</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                        <!-- 北部实体产业集聚 -->
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4 flex items-center">
+                                <i class="fas fa-industry mr-2"></i>
+                                <h4 class="font-semibold text-lg">北部实体产业集聚</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">甘泉堡经开区工业用地（38788亩）占全市产业用地的71.9%，依托北沙窝光伏基地的低电价（约0.3元/度）吸引新能源企业，形成"新能源+储能+氢能"全产业链集群。米东区规划103宗土地（8285亩），重点发展绿色化工与先进制造，推动工业用地向"高精尖"转型。</p>
+                                
+                                <div class="my-6">
+                                    <div id="northern-industrial-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 中部服务业升级 -->
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4 flex items-center">
+                                <i class="fas fa-building mr-2"></i>
+                                <h4 class="font-semibold text-lg">中部服务业升级</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">天山区、沙区以"老城更新"为核心，黑甲山、大湾南路等住宅地块溢价率普遍达1.5%-7.5%，但新华南路商业地块流拍揭示传统商圈饱和风险。水磨沟区会展片区规划总部经济集聚区，依托国际会展中心打造"商务+生态"双核驱动模式。</p>
+                                
+                                <div class="my-6">
+                                    <div id="central-service-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 南部文旅生态 -->
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4 flex items-center">
+                                <i class="fas fa-leaf mr-2"></i>
+                                <h4 class="font-semibold text-lg">南部文旅生态破局</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">乌鲁木齐县文旅商业用地（1901亩）与达坂城区生态农业用地联动，但基础设施滞后导致流拍率超30%，需引入社会资本参与交通、医疗配套建设。</p>
+                                
+                                <div class="my-6">
+                                    <div id="southern-tourism-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 开发模式创新部分 -->
+                    <h4 class="text-lg font-semibold mb-4">开发模式创新：从粗放出让到精准定制</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                        <!-- 工业用地政策红利 -->
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4 flex items-center">
+                                <i class="fas fa-chart-line mr-2"></i>
+                                <h4 class="font-semibold text-lg">工业用地政策红利释放</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">新型工业用地（M0）容积率上限提升至3.0，叠加税费减免（如高新区保税物流用地企业所得税减按15%征收），元道通信等企业以溢价0.6%摘牌高科路地块，显示政策引导成效。</p>
+                                
+                                <div class="my-6">
+                                    <div id="industrial-policy-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">容积率优化</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">容积率上限提升至3.0，提高土地利用效率</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">税费减免</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">高新区保税物流用地企业所得税减按15%征收</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 住宅用地品质化转型 -->
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4 flex items-center">
+                                <i class="fas fa-home mr-2"></i>
+                                <h4 class="font-semibold text-lg">住宅用地品质化转型</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">乌鲁木齐市住宅用地供应正在优化结构，提高质量，推动生态宜居社区建设。新型住宅用地容积率普遍控制在2.0-2.5，降低开发密度，提升居住品质。</p>
+                                <div id="residential-quality-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 商办用地困境与破局 -->
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4 flex items-center">
+                                <i class="fas fa-store mr-2"></i>
+                                <h4 class="font-semibold text-lg">商办用地困境与破局</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">沙区新医路西延商务金融地块以1%溢价成交，但中山路合信大厦等存量商业空置率攀升，建议探索"商改租"政策，参考上海经验将空置商业转为人才公寓或科创空间。</p>
+                                
+                                <div class="my-6">
+                                    <div id="commercial-land-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">空置率问题</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">中山路合信大厦等存量商业空置率攀升，需要创新解决方案</p>
+                                </div>
+                                
+                                <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                        <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">土地成交情况</h5>
+                                        <p class="text-gray-700 dark:text-gray-300">沙区新医路西延商务金融地块以1%溢价成交，显示商办用地市场趋于理性</p>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                        <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">政策建议</h5>
+                                        <p class="text-gray-700 dark:text-gray-300">建议探索"商改租"政策，参考上海经验将空置商业转为人才公寓或科创空间</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 政策环境模块 -->
+        <section id="policy-environment" class="mb-16 section-fade">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400 flex items-center">
+                    <i class="fas fa-gavel mr-3"></i>政策环境
+                </h2>
+                
+                <div class="prose dark:prose-invert max-w-none">
+                    <p class="mb-4">2025年乌鲁木齐房地产市场政策环境呈现供需两端协同发力的特点，供给侧改革持续深化，需求侧政策不断优化，为市场健康发展提供了有力支撑。</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">供给侧改革深化</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">2025年乌鲁木齐市持续深化土地供给侧改革，通过"土地超市"平台提升土地资源配置效率，优化审批流程，降低开发企业制度性交易成本。</p>
+                                
+                                <div class="my-6">
+                                    <div id="supply-reform-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">土地超市平台</h5>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                        <li><span class="font-medium">交易透明度提升：</span>全市土地信息在线公开，实现"阳光交易"</li>
+                                        <li><span class="font-medium">资源配置优化：</span>按区域、用途分类管理，精准匹配市场需求</li>
+                                        <li><span class="font-medium">交易效率提高：</span>线上预约、竞价，缩短交易周期30%以上</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">审批效率提升</h5>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                        <li><span class="font-medium">并联审批机制：</span>多部门同步审批，缩短审批时间42%</li>
+                                        <li><span class="font-medium">容缺受理制度：</span>非核心材料后补，提高审批效率</li>
+                                        <li><span class="font-medium">告知承诺制：</span>简化低风险项目审批流程，释放市场活力</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">需求侧政策优化</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">2025年乌鲁木齐市需求侧政策持续优化，通过金融支持和保障性住房建设双管齐下，满足不同群体的住房需求，促进房地产市场平稳健康发展。</p>
+                                
+                                <div class="my-6">
+                                    <div id="demand-policy-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">金融支持加码</h5>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                        <li><span class="font-medium">差异化信贷政策：</span>首套房贷款利率降至3.5%，二套房贷款利率4.2%</li>
+                                        <li><span class="font-medium">公积金政策优化：</span>提高贷款额度上限，首套房最高可贷80万元</li>
+                                        <li><span class="font-medium">特殊群体支持：</span>青年人才购房补贴，最高可享3万元定向补贴</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">保障性住房补位</h5>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                        <li><span class="font-medium">保障性租赁住房：</span>2025年新增1.2万套，覆盖新市民和青年群体</li>
+                                        <li><span class="font-medium">共有产权住房：</span>推出5000套，面向中低收入家庭</li>
+                                        <li><span class="font-medium">棚户区改造：</span>完成3个老旧小区改造，惠及2800户居民</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mt-6">
+                        <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">政策展望</h5>
+                        <p class="text-gray-700 dark:text-gray-300">未来乌鲁木齐市房地产政策将继续坚持"房住不炒"定位，在稳定市场预期的同时，进一步完善长效机制，促进房地产市场平稳健康发展。预计将出台更多支持刚需和改善型需求的政策措施，同时加强对投机炒房行为的监管。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 投资与开发策略建议部分 -->
+        <section id="investment-strategy" class="mb-16 section-fade">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400 flex items-center">
+                    <i class="fas fa-lightbulb mr-3"></i>投资与开发策略建议
+                </h2>
+                
+                <div class="prose dark:prose-invert max-w-none">
+                    <h3 class="text-xl font-semibold mb-4">1. 投资方向</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">优先级赛道</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">基于市场分析和政策环境，我们建议投资者优先考虑以下赛道：</p>
+                                
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                    <li><span class="font-medium">产业地产：</span>甘泉堡经开区、经开区（政策支持+低成本）</li>
+                                    <li><span class="font-medium">核心区商住混合：</span>天山区（教育医疗配套+低容积率）</li>
+                                </ul>
+                                
+                                <div class="my-6">
+                                    <div id="investment-priority-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">风险提示</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">投资者需警惕以下市场风险：</p>
+                                
+                                <div class="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-500 p-3 rounded mb-4">
+                                    <p class="text-yellow-700 dark:text-yellow-300 text-sm"><i class="fas fa-exclamation-triangle mr-2"></i><span class="font-medium">米东区住宅供应过剩：</span>2025年2月预售面积24,219m²，占全市88.6%</p>
+                                </div>
+                                
+                                <div class="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-500 p-3 rounded">
+                                    <p class="text-yellow-700 dark:text-yellow-300 text-sm"><i class="fas fa-exclamation-triangle mr-2"></i><span class="font-medium">工业用地招商周期长：</span>甘泉堡地块流拍率15%</p>
+                                </div>
+                                
+                                <div class="my-6">
+                                    <div id="risk-assessment-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">2. 拿地开发策略</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">地块选择</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">根据投资周期和风险偏好，建议开发商考虑以下地块选择策略：</p>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">短周期项目</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">天山区、沙依巴克区小宗地块（如天-17地块15亩）</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">长周期项目</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">临空经济示范区（保税物流+跨境电商）</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">开发模式</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">创新开发模式可有效降低风险、提高项目成功率：</p>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">国企合作</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">与城投、交旅投联合开发（如二道桥龙泉街地块）</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">产品创新</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">产业用地兼容研发（如天-20科研地块）</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-lg mb-8 border-l-4 border-primary-500">
+                        <h3 class="text-xl font-semibold mb-3 text-primary-700 dark:text-primary-400">结论</h3>
+                        <p class="text-gray-800 dark:text-gray-200">2025年乌鲁木齐房地产市场将呈现"产业主导、区域分化、政策驱动"三大特征。开发商需紧抓政策红利（如税费减免），优先布局产城融合带（高新区、经开区），同时规避住宅供应过剩区域（米东区）。投资者应关注工业地产和核心区商住混合项目，结合绿色建筑与金融工具创新提升回报率。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 商品房市场运行特征部分 -->
+        <section id="property-market" class="mb-16 section-fade">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400 flex items-center">
+                    <i class="fas fa-building mr-3"></i>商品房市场运行特征
+                </h2>
+                
+                <div class="prose dark:prose-invert max-w-none">
+                    <p class="mb-4">2025年乌鲁木齐商品房市场呈现结构性回暖态势，住宅市场表现活跃，非住宅市场持续承压，二手房交易量同比增长明显。</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">住宅市场结构性回暖</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">2025年乌鲁木齐商品住宅成交面积达到18.9万平方米，同比增长12.3%，其中水磨沟区和高新区表现最为活跃，分别占全市成交量的28.3%和17.2%。</p>
+                                
+                                <div class="my-6">
+                                    <div id="residential-market-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">结构性特征</h5>
+                                    <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                                        <li><span class="font-medium">小户型占比提升：</span>90平米以下住宅占比达42.5%，同比提升5.3个百分点</li>
+                                        <li><span class="font-medium">改善型需求增长：</span>120-140平米住宅成交量同比增长18.7%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">非住宅市场持续承压</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">2025年乌鲁木齐商业地产成交面积同比下降12.5%，工业地产成交面积同比增长18.1%，呈现"冷热不均"特征。</p>
+                                
+                                <div class="my-6">
+                                    <div id="non-residential-market-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">市场分化原因</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">商业地产受线上消费分流影响，传统商业空间需求下降；工业地产受益于产业政策支持和制造业转型升级，需求持续增长。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">二手房市场活跃度提升</h4>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-gray-700 dark:text-gray-300 mb-4">2025年乌鲁木齐二手房成交量同比增长15.7%，成交均价同比上涨3.2%，市场活跃度明显提升。</p>
+                                
+                                <div class="my-6">
+                                    <div id="second-hand-market-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                                
+                                <div class="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-500 p-3 rounded mt-4">
+                                    <p class="text-yellow-700 dark:text-yellow-300 text-sm"><i class="fas fa-exclamation-triangle mr-2"></i>二手房市场区域分化明显，天山区和水磨沟区二手房价格涨幅超过5%，米东区和头屯河区涨幅不足2%。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">需求分层与供给优化并存</h3>
+                    <p class="mb-4">2025年乌鲁木齐商品房市场呈现需求分层与供给优化并存的特点，住宅市场由刚需与改善型需求双轮驱动，非住宅市场中工业地产表现亮眼。</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">住宅市场：刚需与改善双轮驱动</h4>
+                            </div>
+                            <div class="p-5">
+                                <div class="mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">成交量价结构性回暖</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">2025年2月商品住宅成交均价10015元/㎡（同比+3.2%），水磨沟区（53528㎡）依托水磨河生态廊道成为改善型需求核心区。高新区西环北路地块（成交价2.029亿元）定位高端，去化周期缩短至6个月，反映高收入群体对品质住宅的强支付能力。</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">产品分化加剧</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">90-120㎡户型占比58%（刚需主导），144㎡以上大平层去化率同比提升12%，房企需通过"小面积、多功能"设计平衡总价控制与功能需求。</p>
+                                </div>
+                                
+                                <div class="my-6">
+                                    <div id="residential-type-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl overflow-hidden transition-all hover:shadow-lg">
+                            <div class="bg-primary-600 dark:bg-primary-700 text-white p-4">
+                                <h4 class="font-semibold text-lg">非住宅市场：工业地产逆势增长</h4>
+                            </div>
+                            <div class="p-5">
+                                <div class="mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">工业厂房需求激增</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">米东区盛达东路工业地块集群全数成交，新疆豪赛环保等企业布局新能源装备制造。临空经济示范区（高新区）推出25.8亩保税物流用地，跨境电商产业园带动仓储租金年涨幅达8%。</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5 class="font-medium text-primary-600 dark:text-primary-400 mb-2">商业地产转型窗口期</h5>
+                                    <p class="text-gray-700 dark:text-gray-300">天津北路162号商业标的流拍率降至15%，得益于"社区商业+便民服务"改造，但二道桥区域空置率仍超18%，需通过文旅融合（如大巴扎业态升级）激活消费流量。</p>
+                                </div>
+                                
+                                <div class="my-6">
+                                    <div id="industrial-rent-growth-chart" class="chart-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">战略建议</h3>
+                    <p class="mb-4">针对乌鲁木齐房地产市场面临的挑战，我们提出以下战略建议：</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                        <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-6 transition-all hover:shadow-md">
+                            <div class="absolute top-0 left-0 w-2 h-full bg-primary-500"></div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">土地定制化开发</h3>
+                            <p class="text-gray-700 dark:text-gray-300">针对不同区域特点和市场需求，实施土地定制化开发策略，优化土地资源配置，提高土地使用效率，降低土地财政依赖度。</p>
+                        </div>
+                        
+                        <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-6 transition-all hover:shadow-md">
+                            <div class="absolute top-0 left-0 w-2 h-full bg-primary-500"></div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">存量资产盘活</h3>
+                            <p class="text-gray-700 dark:text-gray-300">通过城市更新、旧改、功能转换等方式盘活存量商业资产，引入文旅、教育、医疗等多元业态，提高商业地产使用率和价值。</p>
+                        </div>
+                        
+                        <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-6 transition-all hover:shadow-md">
+                            <div class="absolute top-0 left-0 w-2 h-full bg-primary-500"></div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">数字赋能决策</h3>
+                            <p class="text-gray-700 dark:text-gray-300">利用大数据、人工智能等技术手段，建立房地产市场监测预警系统，为政府调控和企业决策提供数据支持，提高市场运行效率。</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">市场展望</h3>
+                    <p class="mb-4">展望未来，乌鲁木齐商品房市场将继续保持结构性回暖态势，住宅市场将在政策支持下平稳发展，非住宅市场分化将进一步加剧，二手房市场活跃度有望持续提升。</p>
+                    
+                    <div class="bg-primary-50 dark:bg-primary-900/20 p-5 rounded-lg">
+                        <h4 class="font-semibold text-lg mb-3 text-primary-600 dark:text-primary-400">市场风险提示</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                            <li><span class="font-medium">价格波动风险：</span>部分热点区域房价涨幅过快，存在回调风险</li>
+                            <li><span class="font-medium">市场分化风险：</span>区域间、产品间分化加剧，投资决策需更加谨慎</li>
+                            <li><span class="font-medium">政策调整风险：</span>房地产调控政策可能根据市场变化进行微调，影响市场预期</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 未来趋势部分 -->
+        <section id="future-trends" class="mb-16 section-fade">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400 flex items-center">
+                    <i class="fas fa-forward mr-3"></i>未来趋势
+                </h2>
+                
+                <div class="prose dark:prose-invert max-w-none">
+                    <p class="mb-6">基于对乌鲁木齐市房地产市场的深入分析，我们预测2025年及未来几年市场将呈现以下趋势：</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+                        <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-6 transition-all hover:shadow-md">
+                            <div class="absolute top-0 left-0 w-2 h-full bg-primary-500"></div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">1. 政策导向更加精准</h3>
+                            <p class="text-gray-700 dark:text-gray-300">未来政策将更加注重精准调控，因城施策将成为常态。预计乌鲁木齐市将出台更多支持刚需和改善型需求的政策，同时加强对投机行为的限制。</p>
+                        </div>
+                        
+                        <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-6 transition-all hover:shadow-md">
+                            <div class="absolute top-0 left-0 w-2 h-full bg-primary-500"></div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">2. 产品结构持续优化</h3>
+                            <p class="text-gray-700 dark:text-gray-300">住宅产品将更加多元化，满足不同人群需求。小户型刚需住宅、改善型中大户型、养老地产和智能化住宅将成为市场主流产品。</p>
+                        </div>
+                        
+                        <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-6 transition-all hover:shadow-md">
+                            <div class="absolute top-0 left-0 w-2 h-full bg-primary-500"></div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">3. 区域发展更加均衡</h3>
+                            <p class="text-gray-700 dark:text-gray-300">随着城市基础设施的完善和公共资源的均衡配置，乌鲁木齐各区域房地产市场将趋于均衡发展，区域间价格差距将逐步缩小。</p>
+                        </div>
+                        
+                        <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 p-6 transition-all hover:shadow-md">
+                            <div class="absolute top-0 left-0 w-2 h-full bg-primary-500"></div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">4. 智能科技广泛应用</h3>
+                            <p class="text-gray-700 dark:text-gray-300">智能家居、绿色建筑和数字化物业管理将成为房地产项目的标配。开发商将更加注重产品的科技含量和用户体验。</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">市场风险提示</h3>
+                    <p class="mb-4">尽管乌鲁木齐房地产市场整体向好，但仍存在以下潜在风险：</p>
+                    
+                    <ul class="list-disc pl-5 space-y-3 mb-6">
+                        <li><span class="font-medium text-red-600 dark:text-red-400">政策风险：</span>宏观调控政策变化可能对市场造成短期波动</li>
+                        <li><span class="font-medium text-red-600 dark:text-red-400">供应风险：</span>部分区域可能出现阶段性供应过剩</li>
+                        <li><span class="font-medium text-red-600 dark:text-red-400">流动性风险：</span>金融环境变化可能影响购房者融资能力</li>
+                        <li><span class="font-medium text-red-600 dark:text-red-400">区域发展不均衡风险：</span>不同区域发展速度差异可能导致投资风险</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 结论部分 -->
+        <section id="conclusion" class="mb-16 section-fade">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400 flex items-center">
+                    <i class="fas fa-check-circle mr-3"></i>结论与建议
+                </h2>
+                
+                <div class="prose dark:prose-invert max-w-none">
+                    <p class="mb-6">综合分析乌鲁木齐市房地产市场现状和未来趋势，我们得出以下结论：</p>
+                    
+                    <div class="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-lg mb-8 border-l-4 border-primary-500">
+                        <p class="text-lg font-medium text-gray-800 dark:text-gray-200">2025年乌鲁木齐房地产市场将保持稳健发展态势，房价温和上涨，市场结构持续优化，区域发展趋于均衡。</p>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4">投资建议</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-primary-600 dark:text-primary-400">对开发商</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                                <li>关注高新区和经开区发展机会</li>
+                                <li>优化产品结构，提升科技含量</li>
+                                <li>加强品牌建设和服务质量</li>
+                                <li>合理把控开发节奏和投资规模</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-primary-600 dark:text-primary-400">对投资者</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                                <li>优先考虑高新区和经开区优质项目</li>
+                                <li>关注城市更新和旧改项目机会</li>
+                                <li>合理配置投资组合，分散风险</li>
+                                <li>把握政策导向，避免投机行为</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-primary-600 dark:text-primary-400">对购房者</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                                <li>根据自身需求和经济能力选择合适区域</li>
+                                <li>关注配套设施和未来发展潜力</li>
+                                <li>合理规划购房时机和融资方案</li>
+                                <li>注重产品质量和物业服务水平</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p class="mb-4">乌鲁木齐市房地产市场正处于转型升级的关键阶段，政府、开发商、投资者和购房者应共同努力，促进市场健康稳定发展，实现多方共赢。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚部分 -->
+    <footer class="bg-white dark:bg-gray-800 shadow-md mt-16 transition-colors duration-300">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">关于本报告</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">本报告由房策智链专业研究团队基于大量市场调研和数据分析完成，旨在为乌鲁木齐房地产市场相关方提供决策参考。</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">联系我们</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">电子邮件：research@example.com</p>
+                    <p class="text-gray-600 dark:text-gray-400">电话：+86 13070457167</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-600 dark:text-primary-400">作者信息</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-2">作者姓名：徐延</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://twitter.com/author" target="_blank" class="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/author" target="_blank" class="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://github.com/author" target="_blank" class="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center text-gray-500 dark:text-gray-400">
+                <p>© 2025 房策智链房地产市场研究院. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 深色模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const sections = document.querySelectorAll('.section-fade');
+        
+        // 检查系统偏好
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // 深色模式切换
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+        
+        // 移动端菜单
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 点击移动端菜单项后关闭菜单
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // 滚动动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 打印功能
+        document.querySelector('a[href="#"].btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.print();
+        });
+    </script>
+    
+    <!-- 数据可视化脚本已在头部引入 -->

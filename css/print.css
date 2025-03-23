@@ -1,0 +1,136 @@
+/**
+ * 乌市房地产市场 2025年深度研究报告（付费版） - 打印样式
+ * 优化报告的打印效果
+ */
+
+@media print {
+    /* 基础打印样式 */
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* 隐藏不需要打印的元素 */
+    header,
+    footer,
+    #theme-toggle,
+    #mobile-menu-button,
+    .btn,
+    .no-print {
+        display: none !important;
+    }
+    
+    /* 容器样式 */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* 链接样式 */
+    a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+    
+    /* 标题样式 */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        color: black !important;
+        margin-top: 1cm;
+    }
+    
+    h1 {
+        font-size: 24pt;
+        margin-bottom: 0.5cm;
+    }
+    
+    h2 {
+        font-size: 18pt;
+        margin-bottom: 0.3cm;
+    }
+    
+    h3 {
+        font-size: 14pt;
+        margin-bottom: 0.2cm;
+    }
+    
+    /* 段落样式 */
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    /* 卡片样式 */
+    .card-hover {
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+        margin-bottom: 1cm;
+    }
+    
+    /* 图表容器 */
+    .chart-container {
+        page-break-inside: avoid;
+        max-height: 8cm;
+    }
+    
+    /* 表格样式 */
+    table {
+        page-break-inside: avoid;
+        border-collapse: collapse;
+    }
+    
+    /* 分页控制 */
+    section {
+        page-break-before: always;
+    }
+    
+    section:first-of-type {
+        page-break-before: avoid;
+    }
+    
+    /* 打印页眉页脚 */
+    /* 优化图表打印效果 */
+.chart-container {
+    background-color: white !important;
+    border: 1px solid #ddd;
+    max-width: 100%;
+    margin: 0.5cm auto;
+}
+
+/* 优化卡片打印效果 */
+.card-hover {
+    page-break-inside: avoid;
+    border: 1px solid #ddd;
+    margin-bottom: 1cm;
+    background-color: white !important;
+}
+
+/* 优化文本打印效果 */
+p, li {
+    font-size: 11pt;
+    line-height: 1.4;
+    color: black !important;
+}
+
+/* 优化标题打印效果 */
+h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    page-break-after: avoid;
+}
+
+@page {
+        margin: 2cm;
+    }
+    
+    @page :first {
+        margin-top: 3cm;
+    }
+}
